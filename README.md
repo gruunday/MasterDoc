@@ -18,14 +18,14 @@ pip install pygithub
 
 ### Install
 
-'''
+```
 git clone https://github.com/gruunday/MasterDoc.git
 python3 src/collector.py
 docker-compose up -d
-'''
+```
 
 ### Testing 
 
-'''
+```
 python3 src/collector.py && mkdocs serve -a 0.0.0.0:8000
-'''
+```
