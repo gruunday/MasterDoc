@@ -1,6 +1,7 @@
 from github import Github
 import urllib.request
 import os
+import config
 
 def lst_repos(g):
     repo_lst = []
@@ -52,7 +53,7 @@ def usage():
     print("Work in progress")
 
 def main():
-    g = Github("e18c17fcfed708d69ee630af894d134f6df666d1")
+    g = Github(config.github_secret)
     repo_lst = lst_repos(g)
     urls_lst = get_docs_urls(repo_lst)
     create_file_struct(urls_lst)
