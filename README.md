@@ -1,4 +1,4 @@
-![logo](../docs/MasterDoc/images/MasterDocBanner.png)
+![logo](https://github.com/gruunday/MasterDoc/blob/master/docs/MasterDoc/images/MasterDocBanner.png?raw=true)
 
 # MasterDoc
 
