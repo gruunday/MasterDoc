@@ -33,7 +33,7 @@ jobs:
 
       - run:
           name: Create config
-          command: echo "github_secret = ${github_secret}" > config.py
+          command: echo "github_secret = \'${github_secret}\'" > config.py
 
       - save_cache:
           paths:
