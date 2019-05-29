@@ -28,8 +28,11 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Env Setup
+          name: Install dependencies
           command: pip install -r requirements.txt
+
+      - run:
+          name: Create config
           command: echo 'github_secret = $github_secret' > config.py
 
       - save_cache:
