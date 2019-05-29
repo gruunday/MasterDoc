@@ -1,7 +1,6 @@
 from github import Github
 import urllib.request
 import os
-import config
 
 def lst_repos(g):
     repo_lst = []
@@ -80,6 +79,7 @@ def usage():
     print("Work in progress")
 
 def main():
+    import config
     g = Github(config.github_secret)
     repo_lst = lst_repos(g)
     urls_lst = get_docs_urls(repo_lst)
