@@ -41,8 +41,8 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       - run:
-          name: run tests
-          command: python3 -m unittest discover -v
+          name: Run tests and converage report
+          command: coverage run --source=. -m unittest discover - v && coverage report -m
 
       - store_artifacts:
           path: test-reports
