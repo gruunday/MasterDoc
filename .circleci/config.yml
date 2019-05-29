@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: Run tests and converage report
-          command: coverage run --source=. -m unittest discover - v && coverage report -m
+          command: coverage run --source=. -m unittest discover -v && coverage report -m
 
       - store_artifacts:
           path: test-reports
