@@ -2,7 +2,7 @@ version: "3"
 services:
   MasterDoc:
     build: .
-    image: redbrick/docs
+    image: alpine:latest
     ports:
       - "8000:8000"
     volumes:
