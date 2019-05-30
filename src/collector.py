@@ -25,12 +25,16 @@ def get_docs_urls(repo_lst):
                         folder.extend(repo.get_contents(file_content.path))
                     else:
                         docs_urllst.append(file_content.download_url)
+            elif content_file.name == 'README.md':
+                docs_urllst.append(content_file.download_url)
     return docs_urllst
 
 def create_file_struct(url_lst):
     for url in url_lst:
         url = url.split('/')
         repo = url[4]
+        if repo == 'docs':
+            repo = 'legacy_docs'
         folder = ''.join(url[7:-1])
         path = f'docs/{repo}/{folder}'
         if not os.path.isdir(path):
@@ -41,6 +45,8 @@ def download_files(url_lst):
     for url in url_lst:
         surl = url.split('/')
         repo = surl[4]
+        if repo == 'docs':
+            repo = 'legacy_docs'
         folder = ''.join(surl[7:-1])
         name = surl[-1]
         filename = f'docs/{repo}/{folder}/{name}'
@@ -56,7 +62,7 @@ def write_contents(contents):
 site_name: Redbrick Docs
 theme: readthedocs
 repo_url: https://github.com/gruunday/MasterDoc
-strict: True
+strict: False
 markdown_extensions:
   - pymdownx.tasklist
 extra_javascript:
@@ -72,7 +78,10 @@ nav:
         for repo in contents:
             f.write(f'  - {repo}:\n')
             for page in contents[repo]:
-                f.write(f'      - {page.split("/")[-1]}: {repo}/{page}\n')
+                if page.split('.')[-1] == 'md':
+                    if page[0] == '/':
+                        page = page[1:]
+                    f.write(f'      - {page.split("/")[-1]}: {repo}/{page}\n')
 
     
 def usage():
