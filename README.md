@@ -24,8 +24,14 @@ python3 src/collector.py
 docker-compose up -d
 ```
 
-### Testing 
+### Running Locally
 
 ```
 python3 src/collector.py && mkdocs serve -a 0.0.0.0:8000
+```
+
+### Testing 
+
+```
+python3 -m unittest discover -v
 ```
